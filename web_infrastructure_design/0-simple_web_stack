@@ -1,0 +1,40 @@
+What's a server?
+
+A server is like a big computer that stores all the information for a website. When you want to see a website, your computer talks to the server to get the information and then shows it to you.
+Why do we need domain names like foobar.com?
+
+Think of a domain name like a nickname for the server's address. It's easier to remember "foobar.com" than a bunch of numbers (IP address) like "8.8.8.8". When you type in a domain name, your computer uses something called DNS to find out which server it needs to talk to.
+--------------------------------------------------------
+What's up with "www" in www.foobar.com?
+
+That's just a way of saying "Hey, I want to visit the website part of foobar.com." It's like knocking on the website's door instead of the server's door directly.
+---------------------------------------------------------
+What does the web server (Nginx) do?
+
+Nginx is like the bouncer at a club. It checks who's trying to come in (HTTP requests) and makes sure they go to the right place inside (your website).
+----------------------------------------------------------
+What about the application server?
+
+
+This is where all the action happens! It's like the chef in a restaurant. It takes your order (requests) and cooks up the right stuff (your website's content) to serve you.
+----------------------------------------------------------
+And what is the database (MySQL)?
+
+Imagine the database as a giant filing cabinet where all your website's data is stored. When the application server needs something, it opens up the cabinet and grabs what it needs.
+----------------------------------------------------------
+How does the server talk to my computer?
+
+It's like sending letters back and forth. Your computer sends a letter (HTTP request) to the server, asking for the website. The server then sends back a letter (HTTP response) with the website's information.
+----------------------------------------------------------
+Now, what's not so great about this setup?
+
+Single Point of Failure (SPOF):
+
+Because everything is on one server, if it breaks down, the website goes down too. It's like if the only bridge to your island home collapsed – you're stuck!
+Downtime during maintenance:
+
+Imagine if your favorite restaurant had to close every time they changed the menu. That's kind of what happens here. When the server needs updates or fixes, the website has to take a break too.
+Can't handle too much traffic:
+
+If suddenly everyone wants to visit your website at the same time, it might get overwhelmed. It's like trying to fit too many people into a small room – things start to get messy!
+To fix these problems, you'd need a fancier setup with more servers working together, like having multiple chefs in the kitchen to handle big crowds at the restaurant.
