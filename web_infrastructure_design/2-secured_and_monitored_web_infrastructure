@@ -1,0 +1,41 @@
+### Secure and Monitored Web Infrastructure for www.foobar.com
+
+#### Servers:
+1. **Web Server (Nginx)**
+2. **Application Server**
+3. **Database Server (MySQL)**
+
+#### Additional Components:
+- **3 Firewalls**: These are like security guards for our servers. They protect against unauthorized access.
+- **SSL Certificate**: This is like a secret code that keeps our website safe. It ensures that data between visitors and our website is encrypted.
+- **3 Monitoring Clients**: These are like detectives. They watch our servers and tell us if something is wrong.
+
+#### Why We Added Each Component:
+- **Firewalls**: They keep the bad guys out and our data safe.
+- **SSL Certificate (HTTPS)**: It encrypts our data so nobody can read it while it's traveling between our website and visitors.
+- **Monitoring Clients**: They help us keep an eye on our servers. If something goes wrong, they tell us so we can fix it quickly.
+
+#### Monitoring:
+- **What It's For**: Monitoring is like having a health check for our servers. It tells us if they're working well or if there's a problem.
+- **How It Works**: The monitoring clients collect information about our servers, like how many visitors are coming (QPS), how much memory is being used, and other important details.
+
+#### Monitoring Web Server QPS:
+- **What to Do**: If we want to know how many visitors are coming to our website per second (QPS), we ask the monitoring tool. It will show us the number, so we know if our website is busy or not.
+
+### Issues with This Infrastructure:
+1. **Terminating SSL at the Load Balancer Level**:
+   - This is an issue because the data is decrypted at the load balancer. If someone intercepts it there, our data could be exposed.
+2. **Having Only One MySQL Server Accepting Writes**:
+   - If this server goes down, we can't write new data to our website. It's like having only one pencil to write with. If it breaks, we can't write anything new.
+3. **Having Servers with the Same Components**:
+   - If all our servers have the same parts (database, web server, application server), and something goes wrong with that part, all servers might be affected. It's like if one student gets sick and shares their pencil with everyone, soon nobody can write.
+
+### Improvements:
+1. **SSL Offloading at Load Balancer**:
+   - Keep SSL encryption until it reaches our servers. This way, data is safer.
+2. **MySQL Replication**:
+   - Have more than one MySQL server that can accept writes. This way, if one goes down, we still have a backup.
+3. **Diversifying Server Components**:
+   - Use different types of servers. If one type has a problem, the others can still work. It's like having different tools in a toolbox.
+
+By making these improvements, our website for www.foobar.com will be safer, more reliable, and ready to handle lots of visitors securely!
