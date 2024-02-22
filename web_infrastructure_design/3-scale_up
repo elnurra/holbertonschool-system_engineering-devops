@@ -1,0 +1,25 @@
+Introduction
+This README outlines the design of a web infrastructure using a dedicated application server and web server, split components, and a load balancer. Each component is on its own server for scalability and efficiency.
+
+Components:
+Web Server (Nginx): This server handles incoming HTTP requests, serves static content, and acts as a front-facing interface for users.
+Application Server: This server executes the dynamic code, processes requests from the web server, and manages the application logic.
+Database Server (MySQL): This server stores and manages the website's data.
+Why Each Component is Added:
+Web Server (Nginx):
+Added to handle incoming web traffic efficiently, serving static content, and acting as a reverse proxy to the application server.
+Application Server:
+Necessary for executing the dynamic code and running the core logic of the web application, separate from the web server for better resource management.
+Database Server (MySQL):
+Added to store and manage the website's data, providing a structured and scalable solution for data storage.
+Load Balancer (HAproxy):
+Why It's Added:
+Added to distribute incoming traffic across multiple servers (web and application servers) for better performance, scalability, and fault tolerance.
+Configured as a cluster to ensure high availability and redundancy in case one load balancer fails.
+Split Components:
+Purpose:
+Each component (web server, application server, database) has its own dedicated server.
+This separation allows for better scalability, isolation of functions, and efficient use of resources.
+It also provides better security, as compromising one component doesn't necessarily compromise the entire system.
+Conclusion:
+This infrastructure design separates the concerns of serving web content, executing application logic, and managing data into distinct components on separate servers. This approach ensures scalability, efficiency, and enhanced security for hosting the website www.foobar.com
